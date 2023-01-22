@@ -31,7 +31,7 @@ jobs:
             ~/.pnpm-store
             D:\.pnpm-store
             **/node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.lock') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
