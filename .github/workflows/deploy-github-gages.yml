@@ -24,7 +24,7 @@ jobs:
           node-version: '14'
           cache: 'pnpm'
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: pnpm-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: 
@@ -33,7 +33,7 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}
+            ${{ runner.os }}-pnpm-
 
       - name: Install Dependencies
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
