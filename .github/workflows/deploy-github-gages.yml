@@ -10,17 +10,17 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧 .
-        - uses: pnpm/action-setup@v2
+      - name: use pnpm
+        uses: pnpm/action-setup@v2
           with:
             version: 6.32.9
-        - uses: actions/setup-node@v3
-          with:
-            node-version: '14'
-            cache: 'pnpm'
-        - run: |
-            pnpm install --frozen-lockfile
-            pnpm run build
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'pnpm'
+      - run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
