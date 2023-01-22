@@ -33,7 +33,7 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}
 
       - name: Install Dependencies  # install and build
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
